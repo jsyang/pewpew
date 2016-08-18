@@ -5,7 +5,7 @@ var GUNSHOT_BUFFER;
 
 function addStyle() {
     var style       = document.createElement('style');
-    style.innerHTML = ".shot{position:absolute;top:0;left:0;animation-name:shot_fadeout;animation-iteration-count:1;animation-duration:1s;animation-fill-mode:forwards;z-index:10000;overflow:hidden}@keyframes shot_fadeout{0%{background-color:#FFFECC}100%,2%{background-color:#000}5%{background-color:#FF9B87}20%{background-color:#FF2A00}}*{cursor:crosshair!important}";
+    style.innerHTML = ".shot{position:absolute;top:0;left:0;animation-name:shot_fadeout;animation-iteration-count:1;animation-duration:1s;animation-fill-mode:forwards;z-index:10000;overflow:hidden;pointer-events:none}@keyframes shot_fadeout{0%{background-color:#FFFECC}100%,2%{background-color:#000}5%{background-color:#FF9B87}20%{background-color:#FF2A00}}@keyframes rotate_and_dropout0{0%{transform:rotate(0)}1%{transform:rotate(0) translate(-14px,-51px)}100%{transform:rotate(0) translate(7px,6000px)}}@keyframes rotate_and_dropout1{0%{transform:rotate(0)}1%{transform:rotate(0) translate(25px,-93px)}100%{transform:rotate(0) translate(7px,6000px)}}@keyframes rotate_and_dropout2{0%{transform:rotate(0)}1%{transform:rotate(0) translate(-8px,-113px)}100%{transform:rotate(0) translate(7px,6000px)}}*{cursor:crosshair!important}";
     document.documentElement.appendChild(style);
 }
 
@@ -93,26 +93,28 @@ function shootAtLastMouseEvent() {
     var xy = [
         lastMouseEvent.clientX + getRandomFloat(-10, 10),
         lastMouseEvent.clientY + document.body.scrollTop + getRandomFloat(-10, 10)
-    ]
-        .map(Math.round.bind(Math))
-        .map(getPX);
+    ];
 
-    shot.style.transform = 'translate(' + xy + ')';
+    shot.style.transform = 'translate(' + xy.map(Math.round.bind(Math)).map(getPX) + ')';
 
     document.body.appendChild(shot);
+    setTimeout(shot.remove.bind(shot), 4000);
+
+    perturbLastMouseEventElement();
 
     playSound(GUNSHOT_BUFFER);
 }
 
 var shootingInterval;
 var lastMouseEvent;
-var lastElement;
 
 function onMouseDown(e) {
     clearInterval(shootingInterval);
-    shootingInterval = setInterval(shootAtLastMouseEvent, 60);
     lastMouseEvent   = e;
+    shootingInterval = setInterval(shootAtLastMouseEvent, 60);
+
     e.preventDefault();
+    e.stopImmediatePropagation();
     e.stopPropagation();
 }
 
@@ -120,16 +122,63 @@ function onMouseUp(e) {
     clearInterval(shootingInterval);
     e.preventDefault();
     e.stopPropagation();
+    e.stopImmediatePropagation();
 }
 
 function onMouseMove(e) {
     lastMouseEvent = e;
 }
 
+// HIT EVENT STUFF
+
+function perturbLastMouseEventElement() {
+    var el = lastMouseEvent.target;
+    var descendantCount;
+
+    if (el.classList.contains('__falling')) {
+        return;
+    }
+
+    if (el.hasAttribute('data-descendant-count')) {
+        descendantCount = el.getAttribute('data-descendant-count');
+
+    } else {
+        descendantCount = el.getElementsByTagName("*").length;
+        el.setAttribute('data-descendant-count', descendantCount);
+    }
+
+    if (descendantCount < 4) {
+        var hitCount = parseInt(el.getAttribute('data-hit-count'), 10);
+        hitCount     = isNaN(hitCount) ? 0 : hitCount;
+        hitCount++;
+
+        if (hitCount <= 3) {
+            var dx = getPX(Math.round(getRandomFloat(-8, 8)));
+            var dy = getPX(Math.round(getRandomFloat(-8, 8)));
+
+            el.style.transform = 'rotate(' + Math.round(getRandomFloat(-5, 5)) + 'deg) translate(' + [dx, dy] + ')';
+        } else {
+            el.style.animation = 'rotate_and_dropout' + Math.floor(getRandomFloat(0, 3)) + ' 8s forwards';
+            el.classList.add('__falling');
+            setTimeout(el.remove.bind(el), 4000);
+        }
+
+        el.setAttribute('data-hit-count', hitCount.toString());
+    }
+}
+
+function onClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    return false;
+}
+
 function addEvents() {
-    document.documentElement.addEventListener('mousedown', onMouseDown);
-    document.documentElement.addEventListener('mouseup', onMouseUp);
-    document.documentElement.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mousedown', onMouseDown, true);
+    window.addEventListener('mouseup', onMouseUp, true);
+    window.addEventListener('mousemove', onMouseMove, true);
+    window.addEventListener('click', onClick, true);
 }
 
 function init() {

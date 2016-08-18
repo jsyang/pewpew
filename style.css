@@ -8,6 +8,7 @@
     animation-fill-mode       : forwards;
     z-index                   : 10000;
     overflow                  : hidden;
+    pointer-events            : none;
 }
 
 @keyframes shot_fadeout {
@@ -29,6 +30,52 @@
 
     100% {
         background-color : #000;
+    }
+}
+
+* {
+    cursor : crosshair !important;
+}
+
+@keyframes rotate_and_dropout0 {
+    0% {
+        transform : rotate(0deg);
+    }
+
+    1% {
+        transform : rotate(0deg) translate(-14px, -51px);
+    }
+
+    100% {
+        transform : rotate(0deg) translate(7px, 6000px);
+    }
+}
+
+@keyframes rotate_and_dropout1 {
+    0% {
+        transform : rotate(0deg);
+    }
+
+    1% {
+        transform : rotate(0deg) translate(25px, -93px);
+    }
+
+    100% {
+        transform : rotate(0deg) translate(7px, 6000px);
+    }
+}
+
+@keyframes rotate_and_dropout2 {
+    0% {
+        transform : rotate(0deg);
+    }
+
+    1% {
+        transform : rotate(0deg) translate(-8px, -113px);
+    }
+
+    100% {
+        transform : rotate(0deg) translate(7px, 6000px);
     }
 }
 
