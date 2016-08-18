@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9b0f434-edda-4b85-aa4c-5a85cd16b4b6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/pewpew.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loadPewPew.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pewpew.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pewpew.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadPewPew.js" afterPath="$PROJECT_DIR$/loadPewPew.js" />
     </list>
     <ignored path="pewpew.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,18 +28,28 @@
       <file leaf-file-name="pewpew.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pewpew.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="0" column="2310" selection-start-line="0" selection-start-column="0" selection-end-line="140" selection-end-column="7" />
+            <state relative-caret-position="900">
+              <caret line="94" column="74" selection-start-line="94" selection-start-column="74" selection-end-line="94" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pewpew.min.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pewpew.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pewpew.min.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
               <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loadPewPew.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/loadPewPew.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="104" selection-start-line="1" selection-start-column="104" selection-end-line="1" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -75,6 +76,7 @@
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/pewpew.js" />
         <option value="$PROJECT_DIR$/pewpew.min.js" />
+        <option value="$PROJECT_DIR$/loadPewPew.js" />
       </list>
     </option>
   </component>
@@ -227,18 +229,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pewpew.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="0" column="2310" selection-start-line="0" selection-start-column="0" selection-end-line="140" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pewpew.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pewpew.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="94" column="74" selection-start-line="94" selection-start-column="74" selection-end-line="94" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loadPewPew.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="104" selection-start-line="1" selection-start-column="104" selection-end-line="1" selection-end-column="104" />
           <folding />
         </state>
       </provider>
