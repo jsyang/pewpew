@@ -10,6 +10,6 @@ A page with a bookmarklet link that you can drag into your bookmarks bar to add 
 
 ## How to install it as a button in your browser
 
-![install pewpew](http://i.imgur.com/45QJlQj.gif)
+![install pewpew](http://i.imgur.com/sTiyyEq.gif)
 
 GPLv2 licensed.
